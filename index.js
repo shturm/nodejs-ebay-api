@@ -80,9 +80,13 @@ var buildRequestUrl = function buildRequestUrl(serviceName, params, filters, san
   params = params || {};
   filters = filters || {};
   sandbox = (typeof sandbox === 'boolean') ? sandbox : false;
+
+  if (serviceName === 'FindingService') {
+    serviceName = 'Finding';
+  }
   
   switch (serviceName) {
-    case 'FindingService':
+    case 'Finding':
       if (sandbox) {
         // url =   // @todo
         throw new Error("Sandbox endpoint for FindingService not yet implemented. Please add.");
